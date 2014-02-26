@@ -33,7 +33,7 @@ describe AssetsController do
   end
 
   context 'POST create' do
-    let(:success_params) { {asset: {name: "NAME", file: fixture_file_upload('./spec/fixtures/file.text')}} }
+    let(:success_params) { {asset: {name: "NAME", file: fixture_file_upload('./spec/fixtures/file.txt')}} }
 
     let(:do_request) { post :create, success_params }
 
@@ -45,6 +45,23 @@ describe AssetsController do
     it 'redirect to home page' do
       do_request
       expect(response).to redirect_to("/")
+    end
+  end
+
+  context 'GET file' do
+    let!(:asset) { create :asset }
+    let(:do_request) { get :file, id: asset.id, filename: 'file' }
+
+    it 'response success' do
+      do_request
+      expect(response).to be_success
+    end
+
+    it 'return file content' do
+      do_request
+      # see ./spec/fixtures/file.txt
+      expect(response.header["Content-Type"]).to eq 'text/plain'
+      expect(response.body).to eq "1\n"
     end
   end
 end
