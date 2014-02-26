@@ -8,4 +8,6 @@ class User
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
   field :remember_created_at, :type => Time
+
+  index({email: 1}, {unique: true})
 end
