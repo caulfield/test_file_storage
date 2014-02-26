@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
   respond_to :html
 
   def index
-    @assets = Asset.all
+    @assets = Asset.order(created_at: -1)
   end
 
   def new
