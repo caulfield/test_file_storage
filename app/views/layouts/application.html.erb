@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>TestStorage</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%- if signed_in? %>
-    <%= link_to 'Sign out', destroy_user_session_path %>
-  <% end %>
-  <%= notice %>
-  <%= alert %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title>Storage</title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <div class="row">
+      <div class="large-6 columns">
+        <%= render 'shared/nav' %>
+        <%= render 'shared/flashes'%>
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

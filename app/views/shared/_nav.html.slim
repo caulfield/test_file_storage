@@ -1,0 +1,9 @@
+nav.top-bar
+  .title-area
+    li
+      h3 = link_to 'Storage', root_path
+  section.top-bar-section
+    ul.right
+      - if signed_in?
+        li = link_to 'New asset', new_asset_path
+        li = link_to 'Sign out', destroy_user_session_path
