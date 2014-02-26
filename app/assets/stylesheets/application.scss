@@ -3,4 +3,7 @@
 
 .top-bar {
   margin-bottom: 15px;
+  .name h1 a{
+    color: $primary-color;
+  }
 }

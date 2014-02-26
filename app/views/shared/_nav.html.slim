@@ -1,7 +1,9 @@
-nav.top-bar
-  .title-area
-    li
-      h3 = link_to 'Storage', root_path
+nav.top-bar data={topbar: true}
+  ul.title-area
+    li.name
+      h1 = link_to 'Storage', root_path
+    li.toggle-topbar.menu-icon
+      = link_to 'Menu', '#'
   section.top-bar-section
     ul.right
       - if signed_in?
