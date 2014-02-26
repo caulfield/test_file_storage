@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'Auhentication' do
-
   context 'new user signup' do
     it 'will create new user' do
       visit root_path

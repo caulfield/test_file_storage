@@ -7,11 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= notice %>
-  <%= alert %>
   <%- if signed_in? %>
     <%= link_to 'Sign out', destroy_user_session_path %>
   <% end %>
+  <%= notice %>
+  <%= alert %>
 
 <%= yield %>
 

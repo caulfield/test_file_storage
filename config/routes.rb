@@ -1,7 +1,7 @@
 TestStorage::Application.routes.draw do
   devise_for :users
 
-  resources :assets, only: [:index]
+  resources :assets
 
   root to: "assets#index"
 end
