@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
   respond_to :html
 
   def index
-    @assets = AssetDecorator.decorate_collection Asset.order(created_at: -1)
+    @assets = AssetDecorator.decorate_collection Asset.includes(:user).order(created_at: -1)
   end
 
   def new

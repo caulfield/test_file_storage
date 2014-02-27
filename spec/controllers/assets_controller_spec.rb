@@ -7,8 +7,7 @@ describe AssetsController do
 
   context "GET index" do
     it 'assign all assets' do
-      assets = [build_stubbed(:asset)]
-      Asset.should_receive(:order).and_return(assets)
+      assets = [create(:asset)]
       get :index
       expect(assigns(:assets)).to eq(assets)
     end
