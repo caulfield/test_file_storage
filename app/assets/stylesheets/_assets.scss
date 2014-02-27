@@ -5,4 +5,8 @@ li.asset {
   &:first-child {
     border-top: 1px solid black;
   }
+
+  .author {
+    margin-right: 1rem;
+  }
 }

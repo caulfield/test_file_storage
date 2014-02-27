@@ -10,4 +10,6 @@ class User
   field :remember_created_at, :type => Time
 
   index({email: 1}, {unique: true})
+
+  has_many :assets
 end

@@ -37,5 +37,10 @@ describe 'Assets' do
       click_link 'Save'
       expect(page.body).to eq "1\n"
     end
+
+    it 'with asset author' do
+      create_new_asset
+      expect(page).to have_css('.author', text: 'me@example.com')
+    end
   end
 end

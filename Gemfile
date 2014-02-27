@@ -27,6 +27,8 @@ gem 'slim-rails'
 
 gem 'devise'
 
+gem 'draper'
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -42,4 +44,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'shoulda-matchers'
+  gem 'mongoid-rspec'
 end

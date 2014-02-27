@@ -17,6 +17,11 @@ describe AssetsController do
       get :index
       expect(response).to be_success
     end
+
+    it 'decorate collection' do
+      get :index
+      expect(assigns(:assets)).to be_decorated
+    end
   end
 
   context 'GET new' do
@@ -45,6 +50,12 @@ describe AssetsController do
     it 'redirect to home page' do
       do_request
       expect(response).to redirect_to("/")
+    end
+
+    it 'set up current user as user' do
+      do_request
+      asset = Asset.last
+      expect(asset.user).to eq me
     end
   end
 

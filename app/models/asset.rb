@@ -9,4 +9,6 @@ class Asset
   validates :name, :file, presence: true
 
   index({created_at: 1})
+
+  belongs_to :user
 end

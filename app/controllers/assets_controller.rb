@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
   respond_to :html
 
   def index
-    @assets = Asset.order(created_at: -1)
+    @assets = AssetDecorator.decorate_collection Asset.order(created_at: -1)
   end
 
   def new
@@ -12,7 +12,9 @@ class AssetsController < ApplicationController
   end
 
   def create
-    @asset = Asset.create params.for(Asset).refine
+    @asset = Asset.new params.for(Asset).refine
+    @asset.user = current_user
+    @asset.save
     respond_with @asset, location: root_path
   end
 
